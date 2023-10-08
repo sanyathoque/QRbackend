@@ -10,7 +10,7 @@ const usersRoute = require('./routes/users')
 dotenv.config()
 
 //Connect to DB
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true },
+mongoose.connect("mongodb+srv://Sanyat:miraMurati@cluster0.r6sod.mongodb.net/social?retryWrites=true&w=majority", { useNewUrlParser: true },
 () => { console.log('connected to dB') })
 
 //Middeware
@@ -19,8 +19,8 @@ app.use(cookieParser());
 app.use(cors());
 //Route Middlewares
 app.use('/api/auth',authRoute)
-app.use('/api/clients',usersRoute)
-app.use('/api/clients',usersRoute)
+// app.use('/api/clients',usersRoute)
+
 
 app.listen(5000, () => console.log('Server Up and Running'))
 
